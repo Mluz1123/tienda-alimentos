@@ -1,0 +1,24 @@
+<!-- Tabla para listar alimentos -->
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let food of foods">
+      <td>{{ food.name }}</td>
+      <td>{{ food.description }}</td>
+      <td>{{ food.price }}</td>
+      <td>{{ food.quantity }}</td>
+      <td>
+        <button (click)="editFood(food)">Editar</button>
+        <button (click)="deleteFood(food)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

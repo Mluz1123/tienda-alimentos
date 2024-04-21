@@ -1,0 +1,19 @@
+<div style="padding: 50px">
+  <h2 class="text-center pb-4">Catálogo de Alimentos</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col card" style="width: 18rem">
+        @for (item of foods; track $index){
+        <img src="{{ item.img }}" class="card-img-top" alt="Imagen de" />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">{{ item.description }}</p>
+          <button class="btn btn-primary" (click)="addToCart(item)">
+            Agregar al carrito
+          </button>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

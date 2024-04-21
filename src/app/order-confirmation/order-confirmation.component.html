@@ -1,0 +1,9 @@
+<h2>Confirmación de Pedido</h2>
+<p>¡Gracias por tu pedido! Hemos recibido la siguiente información:</p>
+<div *ngFor="let item of cart">
+  <div class="cart-item">
+    <h3>{{ item.name }}</h3>
+    <p>Precio: {{ item.price }}</p>
+    <p>Cantidad: {{ item.quantity }}</p>
+  </div>
+</div>
