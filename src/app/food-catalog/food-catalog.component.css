@@ -1,0 +1,23 @@
+i {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.notification {
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+}
+.container-notification {
+  position: relative;
+  top: -52.5%;
+  left: 34.7%;
+  background: red;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}

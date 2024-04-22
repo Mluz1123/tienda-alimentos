@@ -1,15 +1,40 @@
-<h2>Carrito de Compras</h2>
-<div *ngIf="cart.length === 0">
-  <p>El carrito de compras está vacío.</p>
-</div>
-<div *ngFor="let item of cart">
-  <div class="cart-item">
-    <h3>{{ item.name }}</h3>
-    <p>Precio: {{ item.price }}</p>
-    <p>Cantidad: {{ item.quantity }}</p>
-    <button (click)="removeFromCart(item)">Eliminar</button>
+<div style="padding: 50px">
+  <h2 class="text-center pb-4">Carrito de Compras</h2>
+  <div class="container">
+    <div class="row mt-4">
+      <div *ngIf="cart.length === 0">
+        <p class="text-center pb-4">El carrito de compras está vacío.</p>
+      </div>
+      <div class="card mx-auto" style="width: 60%">
+        @for (item of cart; track $index){
+
+        <img
+          src="{{ item.img }}"
+          class="card-img-top"
+          alt="Imagen de"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h3 class="card-title">{{ item.name }}</h3>
+          <p class="card-title">Costo: {{ item.price }}</p>
+          <p class="card-title">Cantidad: {{ item.quantity }}</p>
+          <button class="btn btn-danger mt-3" (click)="removeFromCart(item)">
+            Eliminar
+          </button>
+        </div>
+
+        }
+      </div>
+      <div
+        class="mt-4 d-flex mx-auto justify-content-between"
+        style="width: 60%"
+        *ngIf="cart.length > 0"
+      >
+        <h2 class="card-title">Total: {{ calculateTotal() }}</h2>
+        <button class="btn btn-secondary" (click)="checkout()">
+          Realizar Pedido
+        </button>
+      </div>
+    </div>
   </div>
-</div>
-<div *ngIf="cart.length > 0">
-  <button (click)="checkout()">Realizar Pedido</button>
 </div>

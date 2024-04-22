@@ -13,12 +13,16 @@ import { CartService } from '../cart.service';
 export class OrderConfirmationComponent implements OnInit {
   cart: Food[] = []; // Arreglo para almacenar los alimentos en el carrito
 
-  constructor(private cartService: CartService) {}
+  constructor() {}
 
   ngOnInit() {
-    // Suscribirse al BehaviorSubject del CartService para obtener cambios en el carrito
-    this.cartService.getCart().subscribe((cart) => {
-      this.cart = cart; // Actualizar el contenido del carrito
-    });
+    this.loadOrder();
+  }
+
+  loadOrder() {
+    const cartItemsString = sessionStorage.getItem('cartItems');
+    if (cartItemsString !== null) {
+      this.cart = JSON.parse(cartItemsString);
+    }
   }
 }

@@ -2,18 +2,36 @@
   <h2 class="text-center pb-4">Catálogo de Alimentos</h2>
   <div class="container">
     <div class="row">
-      <div class="col card" style="width: 18rem">
-        @for (item of foods; track $index){
-        <img src="{{ item.img }}" class="card-img-top" alt="Imagen de" />
-        <div class="card-body">
-          <h5 class="card-title">{{ item.name }}</h5>
-          <p class="card-text">{{ item.description }}</p>
-          <button class="btn btn-primary" (click)="addToCart(item)">
-            Agregar al carrito
-          </button>
+      <div class="col-lg-12 justify-content-end d-flex pb-6">
+        <div class="cart-icon" (click)="showCart()">
+          <i class="bi bi-cart"></i>
+          <div class="container-notification" *ngIf="cartItemCount > 0">
+            <span class="notification">{{ cartItemCount }}</span>
+          </div>
         </div>
-        }
       </div>
+    </div>
+    <div class="row mt-4">
+      @for (item of foods; track $index){
+      <div class="col-lg-4 mb-4">
+        <div class="card" style="width: 100%">
+          <img
+            src="{{ item.img }}"
+            class="card-img-top"
+            alt="Imagen de"
+            style="height: 200px; object-fit: cover"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+            <p class="card-title">$ {{ item.price }}</p>
+            <button class="btn btn-primary" (click)="addToCart(item)">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+      }
     </div>
   </div>
 </div>
